@@ -1,26 +1,37 @@
 import "./scss/style.scss";
 import { Link } from "react-router-dom";
-import { Button } from "./components/atoms";
-
-const funcionDelClick = () => {
-  console.log("me clickearon banda");
-};
+import BoardList from "./scss/components/BoardList";
+import AddNewBoard from "../src/scss/components/NewBoard";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import Topbar from "./scss/components/topbar";
+import { UserContextProvider } from "./scss/components/UserContext/UserContext";
 
 function App() {
   return (
-    <>
-      <h1>Home</h1>
-      <Link to="/login">Login</Link>
-      <h1>Patterns</h1>
-      <Link to="/Patterns">Patterns</Link>
-      <Button
-        text="soy un botón"
-        type="info"
-        onClick={funcionDelClick}
-        width={"180px"}
-        height={"50px"}
-      />
-    </>
+    <DndProvider backend={HTML5Backend}>
+      <div>
+        <UserContextProvider>
+          <div>
+            <Topbar />
+          </div>
+          <div className="align__center display__flex  ">
+            <div
+              className=" align__center display__flex "
+              style={{ margin: "10px" }}
+            >
+              <BoardList />
+            </div>
+            <div
+              className="display__flex align__center  "
+              style={{ margin: "10px" }}
+            >
+              <AddNewBoard />
+            </div>
+          </div>
+        </UserContextProvider>
+      </div>
+    </DndProvider>
   );
 }
 
