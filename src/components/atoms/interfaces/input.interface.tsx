@@ -1,5 +1,5 @@
-type InputType = "text" | "password" | "number" | "tel" | "email" ;
-type SetInputValue = (value: string) =>void;
+type InputType = "text" | "password" | "number" | "tel" | "email";
+type SetInputValue = (value: string) => void;
 interface InputProps {
   placeholder: string;
   width: string;
@@ -10,6 +10,7 @@ interface InputProps {
   type?: InputType;
   disabled?: boolean;
   setValue: SetInputValue;
+  className?:string
 }
 
 export default InputProps;
