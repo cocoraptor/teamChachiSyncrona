@@ -4,6 +4,7 @@ import Patterns from "./scss/views/Patterns.tsx";
 import Login from "./login/login.tsx";
 import Register from "./login/register/register.tsx";
 import RecoverPass from "../src/login/recover-pass.tsx";
+import BoardList  from "./scss/components/BoardList.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -21,7 +22,12 @@ export const router = createBrowserRouter([
       {
         path: "/Recover-password",
         element: <RecoverPass />,
+
       },
+      {
+        path:"/Boards",
+        element: <BoardList/>
+      }
     ],
   },
 ]);
